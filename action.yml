@@ -27,7 +27,7 @@ runs:
   using: "composite"
   steps:
     - id: psoutput
-      shell: pwsh
+      shell: powershell
       env:
         ACCEPT_EULA: "Y"
         HOMEBREW_ACCEPT_EULA: "Y"
