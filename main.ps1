@@ -96,9 +96,10 @@ if ("sqlclient" -in $Install) {
     }
 
     if ($iswindows) {
-        $exeUri = https://github.com/microsoft/go-sqlcmd/releases/download/v1.8.0/sqlcmd-amd64.msi
+        Write-Output "installing sqlcmd for windows"
+        $exeUri = "https://github.com/microsoft/go-sqlcmd/releases/download/v1.8.0/sqlcmd-amd64.msi"
         Invoke-WebRequest -Uri $exeUri -OutFile sqlcmd-amd64.msi
-        Start-Process -Wait -FilePath ./sqlcmd-amd64.msi -ArgumentList /qn, /l*, "sqlcmdlog.txt"
+        Start-Process -Wait -FilePath ./sqlcmd-amd64.msi -ArgumentList "/qn", "/l*", "sqlcmdlog.txt"
         Get-Content "sqlcmdlog.txt"
     }
 
